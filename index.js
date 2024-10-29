@@ -41,15 +41,25 @@ app.get("/send-mail", async (req, res) => {
   // mail.setBcc(process.env.BCC);
   mail.setSubject(process.env.SUBJECT);
   mail.setText("hey , everything all right");
+  let htmlDataFile = fs.readFileSync(
+    path.join(__dirname, "mail.html"),
+    "utf-8"
+  );
 
+  // mail.setAttachments({
+  //   filename: "RANGAKARIYO_kHATA_5_REGISTER2.pdf",
+  //   path: "./img/RANGAKARIYO_kHATA_5_REGISTER2.pdf",
+  // });
+
+  //sending img to mail not attachment
   mail.setAttachments({
     filename: "images.png",
     path: "./img/images.png",
+    contentDisposition: "inline",
+    cid: "images.png",
+    contentType: "image/png",
   });
-  mail.setAttachments({
-    filename: "RANGAKARIYO_kHATA_5_REGISTER2.pdf",
-    path: "./img/RANGAKARIYO_kHATA_5_REGISTER2.pdf",
-  });
+  mail.setHtml(htmlDataFile);
   await mail.send();
 });
 
