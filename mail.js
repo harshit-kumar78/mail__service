@@ -9,10 +9,9 @@ class Mail {
         name: process.env.NAME,
         address: process.env.EMAIL_FROM,
       },
-      to: process.env.EMAIL_TO,
       subject: process.env.SUBJECT,
       text: process.env.TEXT,
-      html: "<h1>html body</h1>",
+      // html: "<h1>html body</h1>",
     };
   }
   /**
@@ -38,9 +37,30 @@ class Mail {
    * @param {string} receiver - the email address of the recipient
    */
   setTo(receiver) {
-    this.mailOptions.to = receiver;
+    let receivers = this.mailOptions.to || [];
+    receivers.push(receiver);
+    this.mailOptions.to = receivers;
   }
 
+  /**
+   * Set the cc of the email
+   * @param {string} cc - the cc of the email
+   */
+  setCC(cc) {
+    let ccs = this.mailOptions.cc || [];
+    ccs.push(cc);
+    this.mailOptions.cc = ccs;
+  }
+
+  /**
+   * Set the bcc of the email
+   * @param {string} bcc - the bcc of the email
+   */
+  setBcc(bcc) {
+    let bccs = this.mailOptions.bcc || [];
+    bccs.push(bcc);
+    this.mailOptions.bcc = bccs;
+  }
   /**
    * Sets the subject of the email
    *
@@ -69,9 +89,22 @@ class Mail {
   }
 
   /**
+   * Sets the attachment of the email
+   *
+   * @param {string} attachments - the attachment of the email
+   */
+
+  setAttachments(attachment) {
+    let attachments = this.mailOptions.attachments || [];
+    attachments.push(attachment);
+    this.mailOptions.attachments = attachments;
+  }
+
+  /**
    * send the mail
    * @return {void} does not return anything
    */
+
   async send() {
     try {
       const result = await transporter.sendMail(this.mailOptions);

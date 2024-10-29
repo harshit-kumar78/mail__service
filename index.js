@@ -6,6 +6,7 @@ const path = require("path");
 
 const app = express();
 app.use(express.json()); //parses the request body
+
 // const transporter = connectToSMTPServer();
 
 //test api
@@ -33,11 +34,23 @@ app.get("/send-mail", async (req, res) => {
   //   }
 
   const mail = new Mail();
-  mail.setCompanyName("Harshit Company");
-  mail.setTo("harshitku3551@gmail.com");
-  mail.setSubject("Subject trial");
+  mail.setCompanyName(process.env.NAME);
+  mail.setTo(process.env.EMAIL_TO);
+  // mail.setTo(process.env.EMAIL_TO);
+  // mail.setCC(process.env.CC);
+  // mail.setBcc(process.env.BCC);
+  mail.setSubject(process.env.SUBJECT);
   mail.setText("hey , everything all right");
-  mail.send();
+
+  mail.setAttachments({
+    filename: "images.png",
+    path: "./img/images.png",
+  });
+  mail.setAttachments({
+    filename: "RANGAKARIYO_kHATA_5_REGISTER2.pdf",
+    path: "./img/RANGAKARIYO_kHATA_5_REGISTER2.pdf",
+  });
+  await mail.send();
 });
 
 app.post("/mail", async (req, res) => {
