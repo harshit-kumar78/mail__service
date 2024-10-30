@@ -42,7 +42,7 @@ app.get("/send-mail", async (req, res) => {
   mail.setSubject(process.env.SUBJECT);
   mail.setText("hey , everything all right");
   let htmlDataFile = fs.readFileSync(
-    path.join(__dirname, "mail.html"),
+    path.join(__dirname, "spotify.html"),
     "utf-8"
   );
 
@@ -52,14 +52,31 @@ app.get("/send-mail", async (req, res) => {
   // });
 
   //sending img to mail not attachment
+  for (let i = 0; i < 6; i++) {
+    mail.setAttachments({
+      filename: "images.png",
+      path: "./img/images.png",
+      cid: "images.png",
+      contentDisposition: "inline",
+      contentType: "image/png",
+    });
+  }
   mail.setAttachments({
-    filename: "images.png",
-    path: "./img/images.png",
+    filename: "logo.png",
+    path: "./img/logo.png",
+    cid: "logo.png",
     contentDisposition: "inline",
-    cid: "images.png",
+    contentType: "image/png",
+  });
+  mail.setAttachments({
+    filename: "logo.png",
+    path: "./img/logo.png",
+    cid: "logo.png",
+    contentDisposition: "inline",
     contentType: "image/png",
   });
   mail.setHtml(htmlDataFile);
+
   await mail.send();
 });
 

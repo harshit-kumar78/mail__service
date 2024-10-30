@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            /* Background color */
+        }
+
+        .main {
+            margin: 0 auto;
+            text-align: center;
+            max-width: 800px;
+            /* Maximum width for larger screens */
+            padding: 20px;
+            background: white;
+            /* Background for content area */
+            border-radius: 8px;
+            /* Rounded corners */
+        }
+
+        .c1 {
+            background-color: red;
+            text-align: center;
+            padding: 1% 0;
+        }
+
+        .c1 img {
+            height: 50px;
+
+        }
+
+        .c6 img {
+            height: 50px;
+        }
+
+        .c1 h3 {
+            color: rgb(105, 248, 105);
+            font-size: 2.5em;
+            /* Responsive font size */
+            font-weight: bold;
+        }
+
+        .c2 h2 {
+            font-size: 1.5em;
+            /* Responsive font size */
+        }
+
+        .c3>button {
+            background-color: black;
+            color: white;
+            padding: 15px 50px;
+            /* Responsive padding */
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1em;
+            /* Responsive font size */
+            cursor: pointer;
+        }
+
+        .c4 {
+            margin: 2% 0;
+            display: flex;
+            flex-wrap: wrap;
+            /* Allow images to wrap */
+            justify-content: center;
+            /* Center images */
+        }
+
+        .c4 .imgBtn {
+            margin: 5px;
+            /* Space between images */
+        }
+
+        .c4 img {
+            max-width: 200px;
+        }
+
+        .c5 {
+            background-color: red;
+            height: 100px;
+        }
+
+        .c6 {
+            background-color: grey;
+            padding: 30px 20px;
+            text-align: left;
+        }
+
+        .c6 img {
+            max-width: 100%;
+            /* Responsive image */
+            height: 50px;
+            /* Maintain aspect ratio */
+        }
+
+        @media (max-width: 600px) {
+
+            .c1 h3,
+            .c2 h2 {
+                font-size: 1.5em;
+                /* Smaller font size on smaller screens */
+            }
+
+            .c3>button {
+                padding: 10px 30px;
+                /* Smaller padding */
+            }
+
+            .c6 {
+                padding: 20px 10px;
+                /* Smaller padding */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="c1">
+            <img src="cid:logo.png" alt="">
+            <h3>Set the scene with mood music.</h3>
+        </div>
+        <div class="c2">
+            <h2>Genres can only define so much.</h2>
+            <h2>Go beyond with music for moods.</h2>
+        </div>
+        <div class="c3">
+            <button>LISTEN NOW</button>
+        </div>
+        <div class="c4">
+            <div class="imgBtn">
+                <img src="cid:images.png" alt="spotifyImg">
+                <img src="cid:images.png" alt="spotifyImg">
+            </div>
+            <div class="imgBtn">
+                <img src="cid:images.png" alt="spotifyImg">
+                <img src="cid:images.png" alt="spotifyImg">
+            </div>
+            <div class="imgBtn">
+                <img src="cid:images.png" alt="spotifyImg">
+                <img src="cid:images.png" alt="spotifyImg">
+            </div>
+
+        </div>
+        <div class="c5"></div>
+        <div class="c6">
+            <img src="cid:logo.png" alt="">
+            <hr>
+            <div style="margin: 20px 0;">
+                Get Spotify for:
+                <span style="color:beige;font-weight: bold;">iPhone</span>
+                <span style="color:beige;font-weight: bold;">Android</span>
+                <span style="color:beige;font-weight: bold;">Others</span>
+            </div>
+            <hr>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad ipsa necessitatibus velit, perferendis
+                ducimus ratione dolores aliquam. Consequuntur provident modi sunt ipsam delectus, minima nisi voluptatem
+                possimus vel, <a href="mailto:harshit3551@gmail.com">harshit3551@gmail.com</a> qui nemo voluptate est,
+                suscipit voluptates <strong>placeat explicabo</strong> tempora! Atque, veniam. Fugit
+                <strong>laudantium.</strong>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
