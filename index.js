@@ -40,18 +40,13 @@ app.get("/send-mail", async (req, res) => {
   // mail.setCC(process.env.CC);
   // mail.setBcc(process.env.BCC);
   mail.setSubject(process.env.SUBJECT);
+
   mail.setText("hey , everything all right");
   let htmlDataFile = fs.readFileSync(
     path.join(__dirname, "spotify.html"),
     "utf-8"
   );
 
-  // mail.setAttachments({
-  //   filename: "RANGAKARIYO_kHATA_5_REGISTER2.pdf",
-  //   path: "./img/RANGAKARIYO_kHATA_5_REGISTER2.pdf",
-  // });
-
-  //sending img to mail not attachment
   for (let i = 0; i < 6; i++) {
     mail.setAttachments({
       filename: "images.png",
@@ -75,6 +70,7 @@ app.get("/send-mail", async (req, res) => {
     contentDisposition: "inline",
     contentType: "image/png",
   });
+
   mail.setHtml(htmlDataFile);
 
   await mail.send();
